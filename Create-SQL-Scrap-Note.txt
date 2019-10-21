@@ -35,3 +35,6 @@ GO
 
 -- Prints the table
 SELECT * FROM exercise_table1
+
+SELECT MAX(Price) AS LargestPrice
+FROM exercise_table1;
