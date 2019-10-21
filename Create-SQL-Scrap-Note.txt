@@ -1,16 +1,37 @@
-USE	[exercise_data]
+USE	[exercise_database]
 
-CREATE TABLE [dbo].[plant](
-[plant_id][int] NOT NULL,
-[plant_name][varchar](50) NOT NULL,
-[plant_info][varchar](50) NOT NULL,
-[radius][varchar](50) NULL,
+-- utils: delete tables each time wtih just execute, comment out for the 1st time
+DROP TABLE exercise_table1
+
+-- Create a table named exercrise_table1
+CREATE TABLE [dbo].[exercise_table1](
+[inv_id][int] NOT NULL,
+[inv_name][varchar](50) NOT NULL,
+[inv_info][varchar](50) NOT NULL,
+[inv_code][varchar](50) NULL,
 [time_created][datetime] NULL
 ) ON [PRIMARY]
 
-INSERT INTO plant(plant_id, plant_name, plant_info, radius, time_created)
-VALUES ('12314', 'Erichsen', 'Skagen 21', 'Stavanger', '4006');
+-- Populate the table with some dummy data
+INSERT INTO exercise_table1(inv_id, inv_name, inv_info, inv_code, time_created)
+VALUES ('000001', 'Erichsen', 'Skagen Model 21', '500', '2008-11-11'),
+('000002', 'Sunflower', 'Kids Bike Model 3', '4500', '2009-11-11'),
+('000002', 'Sunthower', 'Pizza Maker Model 2', '4200', '2009-11-11'),
+('000003', 'Peathower', 'El Funo 2', '1500', '2016-11-11'),
+('000004', 'Dandiflower', 'El Camino Model 2', '4400', '2019-11-11'),
+('000005', 'Windflower', 'Ven Osley 300', '6895', '2011-11-11');
+
 GO
 
+-- Alter the table and add a Money Column
+ALTER TABLE exercise_table1
+ADD Price Money
+GO
 
-SELECT * FROM plant
+-- Update two fields in the inv_id=3 record
+UPDATE exercise_table1 SET inv_code= 999999 WHERE inv_id=3;
+UPDATE exercise_table1 SET Price = 888888 WHERE inv_id=3;
+GO
+
+-- Prints the table
+SELECT * FROM exercise_table1
