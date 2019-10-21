@@ -1,0 +1,16 @@
+USE	[exercise_data]
+
+CREATE TABLE [dbo].[plant](
+[plant_id][int] NOT NULL,
+[plant_name][varchar](50) NOT NULL,
+[plant_info][varchar](50) NOT NULL,
+[radius][varchar](50) NULL,
+[time_created][datetime] NULL
+) ON [PRIMARY]
+
+INSERT INTO plant(plant_id, plant_name, plant_info, radius, time_created)
+VALUES ('12314', 'Erichsen', 'Skagen 21', 'Stavanger', '4006');
+GO
+
+
+SELECT * FROM plant
