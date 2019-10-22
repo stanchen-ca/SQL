@@ -1,20 +1,21 @@
 USE	[exercise_database]
 
 -- utils: delete tables each time wtih just execute, comment out for the 1st time
-DROP TABLE exercise_table1
 DROP TABLE exercise_table1_inv
+DROP TABLE exercise_table1_code
+DROP TABLE exercise_table1_sales
 
 -- Create a table named exercrise_table1
-CREATE TABLE [dbo].[exercise_table1](
-[inv_id][int] NOT NULL,
+CREATE TABLE exercise_table1_inv(
+PRIMARY KEY(inv_id),
 [inv_name][varchar](50) NOT NULL,
 [inv_info][varchar](50) NOT NULL,
 [inv_code][varchar](50) NULL,
-[time_created][datetime] NULL
-) ON [PRIMARY]
+[time_created][datetime] NULL,
+)
 
 -- Populate the table with some dummy data
-INSERT INTO exercise_table1(inv_id, inv_name, inv_info, inv_code, time_created)
+INSERT INTO exercise_table1_inv(inv_id, inv_name, inv_info, inv_code, time_created)
 VALUES ('000001', 'Erichsen', 'Skagen Model 21', '500', '2008-11-11'),
 ('000002', 'Sunflower', 'Kids Bike Model 3', '450', '2009-11-11'),
 ('000002', 'Sunthower', 'Pizza Maker Model 2', '420', '2009-11-11'),
@@ -25,13 +26,13 @@ VALUES ('000001', 'Erichsen', 'Skagen Model 21', '500', '2008-11-11'),
 GO
 
 -- Alter the table and add a Money Column
-ALTER TABLE exercise_table1
+ALTER TABLE exercise_table1_inv
 ADD Price Money
 GO
 
 -- Update two fields in the inv_id=3 record
-UPDATE exercise_table1 SET inv_code= 999 WHERE inv_id=3;
-UPDATE exercise_table1 SET Price = 999999 WHERE inv_id=3;
+UPDATE exercise_table1_inv SET inv_code= 999 WHERE inv_id=3;
+UPDATE exercise_table1_inv SET Price = 999999 WHERE inv_id=3;
 GO
 
 
@@ -39,14 +40,14 @@ GO
 
 --Attempt to add a second table and link it to the first table
 
-CREATE TABLE [dbo].[exercise_table1_inv](
+CREATE TABLE exercise_table1_code(
 [inv_code][int] NOT NULL,
 [inv_code_name][varchar](50) NOT NULL,
 [inv_code_info][varchar](50) NOT NULL,
-) ON [PRIMARY]
+)
 GO
 
-INSERT INTO exercise_table1_inv(inv_code, inv_code_name, inv_code_info)
+INSERT INTO exercise_table1_code(inv_code, inv_code_name, inv_code_info)
 VALUES ('500', 'Do Not Sale', 'Item under review'),
 ('450', 'Special Promo', 'Employee Discount'),
 ('440', 'Special Promo', 'Christmas Sales'),
@@ -56,7 +57,12 @@ VALUES ('500', 'Do Not Sale', 'Item under review'),
 GO
 
 
-
+CREATE TABLE exercise_table1_sales(
+[sales_id][int] NOT NULL,
+[inv_id][varchar](50) NOT NULL,
+[inv_code_info][varchar](50) NOT NULL,
+) ON [PRIMARY]
+GO
 
 
 
@@ -65,8 +71,8 @@ GO
 
 
 -- Prints the table
-SELECT * FROM exercise_table1
 SELECT * FROM exercise_table1_inv
+SELECT * FROM exercise_table1_code
 
 SELECT MAX(Price) AS LargestPrice
-FROM exercise_table1;
+FROM exercise_table1_inv;
