@@ -3,32 +3,33 @@ USE	[exercise_database]
 -- utils: delete tables each time wtih just execute, comment out for the 1st time
 DROP TABLE exercise_table1_inv
 DROP TABLE exercise_table1_code
-DROP TABLE exercise_table1_sales
 
 -- Create a table named exercrise_table1
 CREATE TABLE exercise_table1_inv(
-inv_id int  NOT NULL,
+inv_id int  NOT NULL UNIQUE,
 inv_name varchar(50) NOT NULL,
 inv_info varchar(50) NOT NULL,
 inv_code varchar(50) NULL,
 time_created datetime  NULL,
-PRIMARY KEY(inv_id)
+CONSTRAINT PK_inv_id PRIMARY KEY(inv_id)
 )
 
 -- Populate the table with some dummy data
 INSERT INTO exercise_table1_inv(inv_id, inv_name, inv_info, inv_code, time_created)
-VALUES ('10001', 'Erichsen', 'Skagen Model 21', '500', '2008-11-11'),
-('10002', 'Sunflower', 'Kids Bike Model 3', '450', '2009-11-11'),
-('10003', 'Sunthower', 'Pizza Maker Model 2', '420', '2009-11-11'),
-('10004', 'Peathower', 'El Funo 2', '150', '2016-11-11'),
-('10005', 'Dandiflower', 'El Camino Model 2', '440', '2019-11-11'),
-('10006', 'Windflower', 'Ven Osley 300', '685', '2011-11-11');
+VALUES ('00001', 'Erichsen', 'Skagen Model 21', '500', '2008-11-11'),
+('00002', 'Sunflower', 'Kids Bike Model 3', '450', '2009-11-11'),
+('00003', 'Sunthower', 'Pizza Maker Model 2', '420', '2009-11-11'),
+('00004', 'Peathower', 'El Funo 2', '150', '2016-11-11'),
+('00005', 'Dandiflower', 'El Camino Model 2', '440', '2019-11-11'),
+('00006', 'Windflower', 'Ven Osley 300', '685', '2011-11-11');
 GO
 
 -- Alter the table and add a Money Column
 ALTER TABLE exercise_table1_inv
 ADD Price Money
 GO
+
+
 
 -- Update two fields in the inv_id=3 record
 UPDATE exercise_table1_inv SET inv_code= 999 WHERE inv_id=3;
@@ -41,10 +42,10 @@ GO
 --Attempt to add a second table and link it to the first table
 
 CREATE TABLE exercise_table1_code(
-inv_code int  NOT NULL,
+inv_code int  NOT NULL UNIQUE,
 inv_code_name varchar (50) NOT NULL,
 inv_code_info varchar (50) NOT NULL,
-PRIMARY KEY(inv_code)
+CONSTRAINT PK_inv_code PRIMARY KEY(inv_code)
 )
 GO
 
@@ -58,13 +59,24 @@ VALUES ('500', 'Do Not Sale', 'Item under review'),
 GO
 
 
-CREATE TABLE exercise_table1_sales(
-sales_id int  NOT NULL,
-inv_id varchar (50) NOT NULL,
-inv_code_info varchar (50) NOT NULL,
-PRIMARY KEY(sales_id),
-) ON [PRIMARY]
-GO
+
+
+
+SELECT 
+	exercise_table1_inv.inv_id, 
+	exercise_table1_inv.inv_name,
+	exercise_table1_inv.inv_info, 
+	exercise_table1_code.inv_code,
+	exercise_table1_code.inv_code_name,
+	exercise_table1_code.inv_code_info,
+	exercise_table1_inv.time_created,
+	exercise_table1_inv.Price
+FROM exercise_table1_inv
+INNER JOIN exercise_table1_code ON exercise_table1_inv.inv_code=exercise_table1_code.inv_code;
+
+
+
+
 
 
 
