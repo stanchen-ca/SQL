@@ -7,7 +7,7 @@ DROP TABLE exercise_table1_sales
 
 -- Create a table named exercrise_table1
 CREATE TABLE exercise_table1_inv(
-PRIMARY KEY(inv_id),
+[inv_id][int] NOT NULL,
 [inv_name][varchar](50) NOT NULL,
 [inv_info][varchar](50) NOT NULL,
 [inv_code][varchar](50) NULL,
