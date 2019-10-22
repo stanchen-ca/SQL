@@ -64,7 +64,7 @@
 
 
 -- Prints the table
-	SELECT * FROM exercise_table1_inv
+--	SELECT * FROM exercise_table1_inv
 	SELECT * FROM exercise_table1_code
 
 -- Join two tables
@@ -80,6 +80,7 @@
 	INTO exercise_table_new
 	FROM exercise_table1_inv
 	INNER JOIN exercise_table1_code ON exercise_table1_inv.inv_code=exercise_table1_code.inv_code;
+
 -- Print the joined tables
 	SELECT * FROM exercise_table_new
 
@@ -100,3 +101,6 @@
 --Print Max Prize
 	SELECT MAX(Price) AS LargestPrice
 	FROM exercise_table1_inv;
+
+
+/* this is also a valid comment style */
