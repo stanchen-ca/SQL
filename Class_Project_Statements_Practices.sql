@@ -79,12 +79,15 @@ VALUES(	'Shaniqua',	'Bonney',	44,	53000,	'4031808759',	'Operation',	'2017-1-19',
 
 
 INSERT INTO departmentDB (departmentName,bonusRate,vacpYear)
-VALUES('Business',	0,	21),
-('Operation',	0.19,	11),
-('Accounting',	0.08,	36),
-('Engineering',	0.08,	20),
-('HR',	0.13,	27),
-('Contractors',	0.02,	38);
+VALUES('Business',	0.17,	33),
+('Operation',	0.15,	13),
+('Accounting',	0.09,	21),
+('Engineering',	0.18,	12),
+('HR',	0.17,	30),
+('Contractors',	0.14,	28),
+('Temp Contractors',	0,	0),
+('Internship',	0,	0);
+
 
 
 
@@ -105,6 +108,10 @@ SET vacDays=0 where departmentName='Contractors';
 INSERT INTO employeeDB(firstName,lastName,age,baseSalary,phone,departmentName,hiredSince,vacDays)
 VALUES('David',	'Smith',	25,	40000,	'4038145108',	'Business',	'2019-10-25',	0);
 
+/*	We have Hired a consultant Roger Cyath, age 33, salaried at 180,000, he signed his contracts on Oct 21, 2019 */
+INSERT INTO employeeDB(firstName,lastName,age,baseSalary,phone,departmentName,hiredSince,vacDays)
+VALUES('Roger',	'Cyath',	33,	180000,	'4032155256',	'Consultant',	'2019-10-21',	0);
+
 
 
 /*	Practicing JOIN statements:
@@ -114,7 +121,31 @@ Join the two tables by using the following commands:
 	RIGHT OUTER JOIN
 	FULL OUTER JOIN		*/
 
+/*	INNER JOIN, only both records matched in LEFT table and RIGHT table is included	*/
+SELECT employeeID,firstName,lastName,age,baseSalary,phone,employeeDB.departmentName,bonusRate,hiredSince,vacpYear,vacDays
+FROM employeeDB
+INNER JOIN departmentDB
+ON employeeDB.departmentName = departmentDB.departmentName;
 
+
+/*	LEFT OUTER JOIN, everything from the left table is included	*/
+SELECT employeeID,firstName,lastName,age,baseSalary,phone,departmentDB.departmentName,bonusRate,hiredSince,vacpYear,vacDays
+FROM employeeDB
+LEFT JOIN departmentDB
+ON employeeDB.departmentName = departmentDB.departmentName;
+
+/*	RIGHT OUTER JOIN, all criterias from right table is included	*/
+
+SELECT employeeID,firstName,lastName,age,baseSalary,phone,departmentDB.departmentName,bonusRate,hiredSince,vacpYear,vacDays
+FROM employeeDB
+RIGHT JOIN departmentDB
+ON employeeDB.departmentName = departmentDB.departmentName;
+
+
+SELECT employeeID,firstName,lastName,age,baseSalary,phone,departmentDB.departmentName,bonusRate,hiredSince,vacpYear,vacDays
+FROM employeeDB
+FULL OUTER JOIN departmentDB
+ON employeeDB.departmentName = departmentDB.departmentName;
 
 
 
