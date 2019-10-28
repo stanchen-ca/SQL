@@ -38,3 +38,8 @@ SELECT * FROM normalizeEducationField;
 
 
 
+SELECT NormalizeTable.employeeID, normalizeBusiness.businessID, normalizeDepartment.departmentID, normalizeEducationField.educationFieldID
+FROM (((NormalizeTable
+INNER JOIN normalizeBusiness ON NormalizeTable.BusinessTravel=normalizeBusiness.BusinessTravel)
+INNER JOIN normalizeDepartment ON NormalizeTable.Department=normalizeDepartment.Department)
+INNER JOIN normalizeEducationField ON NormalizeTable.EducationField=normalizeEducationField.EducationField);
