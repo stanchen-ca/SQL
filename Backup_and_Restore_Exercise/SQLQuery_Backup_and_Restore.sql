@@ -1,5 +1,5 @@
 /*
-Steps
+Exercrise Steps
 1. Populate a database with some data 
 2. Bakcup the database
 3. Restore the database
@@ -78,10 +78,20 @@ Step 2: Backup Database
 -> Rightclick backupRestore database
 -> Tasks
 -> Backup
-->  
-->
-
 */
 
 BACKUP DATABASE [backupRestore] TO  DISK = N'C:\DB_backup\backupRestore.bak' WITH NOFORMAT, NOINIT,  NAME = N'backupRestore-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+
+/*
+Step 2: Restore Database
+-> Rightclick backupRestore database
+-> Tasks
+-> Restore -> Database
+*/
+
+USE [master]
+BACKUP LOG [backupRestore] TO  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup\backupRestore_LogBackup_2019-10-30_14-08-22.bak' WITH NOFORMAT, NOINIT,  NAME = N'backupRestore_LogBackup_2019-10-30_14-08-22', NOSKIP, NOREWIND, NOUNLOAD,  NORECOVERY ,  STATS = 5
+RESTORE DATABASE [backupRestore] FROM  DISK = N'C:\DB_backup\backupRestore.bak' WITH  FILE = 1,  NOUNLOAD,  STATS = 5
 GO
