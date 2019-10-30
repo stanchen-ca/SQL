@@ -1,5 +1,5 @@
 /*
-Logic Steps
+Steps
 1. Populate a database with some data 
 2. Bakcup the database
 3. Restore the database
@@ -70,6 +70,18 @@ INSERT INTO mytable(employeeID,firstName,lastName,age,baseSalary,phone,departmen
 INSERT INTO mytable(employeeID,firstName,lastName,age,baseSalary,phone,department,hiredSince,vacDays) VALUES (1049,'Tamela','Klock',34,75000,'4039098393','Engineering','1995-2-28',1);
 INSERT INTO mytable(employeeID,firstName,lastName,age,baseSalary,phone,department,hiredSince,vacDays) VALUES (1050,'Georgetta','Batten',26,30000,'4031666476','Business','2009-1-12',15);
 
-
-
 SELECT * FROM mytable;
+
+
+/*
+Step 2: Backup Database
+-> Rightclick backupRestore database
+-> Tasks
+-> Backup
+->  
+->
+
+*/
+
+BACKUP DATABASE [backupRestore] TO  DISK = N'C:\DB_backup\backupRestore.bak' WITH NOFORMAT, NOINIT,  NAME = N'backupRestore-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
