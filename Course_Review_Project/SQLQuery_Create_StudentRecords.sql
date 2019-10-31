@@ -79,3 +79,6 @@ INSERT INTO studentRecords(studentID,First_name,Lastname) VALUES((SELECT MAX(stu
 
 
 SELECT * FROM StudentRecords;
+
+/*	The entries discrepenciesEntries can be dropped	*/
+DROP TABLE discrepenciesEntries;
