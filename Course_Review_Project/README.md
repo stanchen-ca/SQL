@@ -1,6 +1,17 @@
 # Course Review Project Documentation
 
-[TOC]
+1. [Intro](#intro)
+      - [Course Review Project Requirements](#course-review-project-requirements)
+      - [*Note](#-note)
+2. [Methods](#methods)
+      - [A section of the source data](#a-section-of-the-source-data)
+      - [Initial Design of the Database](#initial-design-of-the-database)
+3. [Challenges and Highlights](#challenges-and-highlights)
+      - [Duplicate student IDs](#duplicate-student-ids)
+      - [Incomplete Letter Grade List](#incomplete-letter-grade-list)
+4. [Files in This Project](#files-in-this-project)
+      - [Project files](#project-files)
+      - [Other project related files](#other-project-related-files)
 
 ## Intro
 
