@@ -42,11 +42,11 @@ In this course review exercise, I attempt to make my database design as realisti
 
 ## A section of the source data
 
-![image-20191101095009022](C:\Users\student\Desktop\Course Review Project Documentation.md\README.assets\image-20191101095009022.png)
+![image-20191101095009022](./README.assets\image-20191101095009022.png)
 
 ## Initial Design of the Database
 
-![image-20191101095018089](C:\Users\student\Desktop\Course Review Project Documentation.md\README.assets\image-20191101095018089.png)
+![image-20191101095018089](./README.assets\image-20191101095018089.png)
 
 ## Challenges and Highlights 
 
@@ -127,7 +127,7 @@ DROP TABLE discrepenciesEntries;
 
 ​	Records with discrepancies is adjusted and re-added to the table:
 
-![image-20191101095807615](C:\Users\student\Desktop\Course Review Project Documentation.md\README.assets\image-20191101095807615.png)
+![image-20191101095807615](./README.assets\image-20191101095807615.png)
 
 
 
@@ -166,7 +166,7 @@ the temp grade table from the database.
 
 
 
-![image-20191101100435890](C:\Users\student\Desktop\Course Review Project Documentation.md\README.assets\image-20191101100435890.png)
+![image-20191101100435890](./README.assets\image-20191101100435890.png)
 
 Even though the letter grades are complete, but the orders(indexing) is out of order, this may create problem in a long run if this database is continuously used by other users and the orders of this current table just doesn't make sense. 
 
@@ -194,7 +194,7 @@ DROP TABLE tempGradeTable;
 
 The final product of the modified grade table:
 
-![image-20191101100904164](C:\Users\student\Desktop\Course Review Project Documentation.md\README.assets\image-20191101100904164.png)
+![image-20191101100904164](./README.assets\image-20191101100904164.png)
 
 
 
