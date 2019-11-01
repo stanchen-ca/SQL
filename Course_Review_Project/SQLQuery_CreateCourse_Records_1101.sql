@@ -69,7 +69,11 @@ VALUES(1101,'Introduction to SQL','Arta F.');
 
 
 
+/*
+-- Note this command is unecessary because the studentID is supposed to be a foreign key in this table.
 ALTER TABLE Course_Records_1101 ADD CONSTRAINT PK_Course_Records_1101 PRIMARY KEY (studentID);
+*/
+
 -- Adding establishing foreign key relationships
 ALTER TABLE Course_Records_1101 ADD CONSTRAINT FK_studentID FOREIGN KEY (studentID) REFERENCES StudentRecords(studentID);
 ALTER TABLE Course_Records_1101 ADD CONSTRAINT FK_gradeID FOREIGN KEY (gradeID) REFERENCES GradeTable(gradeID);
