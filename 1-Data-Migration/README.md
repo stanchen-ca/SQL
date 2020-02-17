@@ -17,7 +17,7 @@
 
 ## Intro
 
-This project is a course review project for DATA9401 of BVC’s TSI, the final product has to meet requirements set by instructor:
+This project is a capstone / course review project for DATA9401 of BVC’s TSI, the final product has to meet requirements set by instructor:
 
 ##### Course Review Project Requirements
 

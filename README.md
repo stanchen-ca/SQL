@@ -1,3 +1,24 @@
-# BVC TSI Database Administration Fundamentals
+# What Is the Purpose of This Repository? 
 
-I'm currently enrolled in Bow Valley College's  [Tech Skills Initiative](https://bowvalleycollege.ca/get-working/tech-skills-to-employment) Project. This Repository is created to showcase my work and skills acquired in SQL and database administrating. 
+ This repository is created to showcase my skills and proficiencies with SQL. This is a companion repository of my portfolio. 
+
+# Contents: Projects Featured in This Repository
+
+### 1. Database Migration
+
+Database migration capstone project. Tasks involved in this project are:
+
+- Schema design
+- Handle NULLs and duplicates
+- Create a master table that will hold the entire dataset.
+- Normalize the dataset into third normal form.
+- Identify primary and foreign keys for your tables.
+- Use JOIN to create a consolidated table
+
+### 2. Normalization
+
+In this project, I modified a dataset to practice normalization on a complex dataset with lots of duplicate values. I've normalized a simplified dataset to it's 3rd normal form. 
+
+### 3. Backup and Restore
+
+In this exercise, I've created a new database and  populated it with one table. Then using the Microsoft SSMS, I created a full backup and performed a restore on this database.
